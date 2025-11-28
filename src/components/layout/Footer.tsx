@@ -21,10 +21,14 @@ const Footer = () => {
     <footer className="bg-black border-t border-accent-gold/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
+          {/* Brand - Logo 2x scaled with responsive sizing */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="NeuraFlow" className="h-8 w-auto" />
+              <img 
+                src={logo} 
+                alt="NeuraFlow logo" 
+                className="h-16 md:h-20 lg:h-24 w-auto max-h-[64px] md:max-h-[80px] lg:max-h-[96px]" 
+              />
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
               Smarter Systems. Seamless Flow.
@@ -74,16 +78,18 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="tel:+917892748115"
+                  href="tel:7892748115"
+                  aria-label="Call NeuraFlow"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
                 >
                   <Phone size={16} />
-                  +91 7892748115
+                  7892748115
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:hemchandrabusi11@gmail.com"
+                  aria-label="Email NeuraFlow"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
                 >
                   <Mail size={16} />
@@ -95,6 +101,7 @@ const Footer = () => {
                   href="https://wa.me/917892748115"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Chat on WhatsApp"
                   className="text-sm text-accent-gold hover:text-accent-gold/80 transition-colors font-medium"
                 >
                   💬 WhatsApp

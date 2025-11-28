@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Bot, Database, MessageSquare, Globe, Target, Clock, BarChart3, Network, ArrowRight } from "lucide-react";
+import { Bot, Database, MessageSquare, Globe, Clock, BarChart3, Network, ArrowRight } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -35,18 +35,11 @@ const Services = () => {
       slug: "web-development",
     },
     {
-      icon: Target,
-      title: "Google & Meta Ads Management",
-      description: "Data-driven advertising campaigns that maximize ROI. From strategy to execution and optimization across Google and Meta platforms.",
-      features: ["Campaign Strategy", "Ad Creation", "Performance Tracking", "ROI Optimization"],
-      slug: "ads-management",
-    },
-    {
       icon: Clock,
-      title: "Attendance & Field Automation",
-      description: "Automated attendance tracking and field workforce management. GPS tracking, real-time reporting, and seamless integration.",
+      title: "AI Receptionist",
+      description: "AI Receptionist: automated attendance, selfie-based punch & smart logging. GPS tracking, real-time reporting, and seamless integration.",
       features: ["GPS Tracking", "Real-time Updates", "Automated Reports", "Mobile Access"],
-      slug: "attendance-automation",
+      slug: "ai-receptionist",
     },
     {
       icon: BarChart3,

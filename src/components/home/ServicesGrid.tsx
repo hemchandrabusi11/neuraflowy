@@ -36,9 +36,9 @@ const ServicesGrid = () => {
     },
     {
       icon: Clock,
-      title: "Attendance Systems",
-      description: "Automated attendance tracking and field workforce management.",
-      href: "/services/attendance-automation",
+      title: "AI Receptionist",
+      description: "Automated attendance, selfie-based punch & smart logging for field workforce.",
+      href: "/services/ai-receptionist",
     },
     {
       icon: BarChart3,
