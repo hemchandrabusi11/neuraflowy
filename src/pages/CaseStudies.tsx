@@ -50,18 +50,18 @@ const CaseStudies = () => {
       tags: ["AI Chatbot", "Customer Support", "WhatsApp"],
     },
     {
-      slug: "field-attendance-tracking",
+      slug: "field-workforce-automation",
       title: "Field Workforce Automation",
       industry: "Logistics",
       image: "bg-gradient-to-br from-violet-500 to-purple-600",
-      problem: "No visibility into field team attendance and location",
-      solution: "GPS-based attendance system with real-time tracking",
+      problem: "No visibility into field team activities and location",
+      solution: "AI Receptionist with GPS-based tracking and real-time reporting",
       results: [
-        { label: "Attendance Accuracy", value: "100%" },
+        { label: "Tracking Accuracy", value: "100%" },
         { label: "Admin Time", value: "-80%" },
         { label: "Productivity", value: "+25%" },
       ],
-      tags: ["Attendance", "GPS Tracking", "Automation"],
+      tags: ["AI Receptionist", "GPS Tracking", "Automation"],
     },
   ];
 

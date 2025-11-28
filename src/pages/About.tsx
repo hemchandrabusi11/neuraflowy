@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Brain, Zap, Target, Rocket, Shield, Users } from "lucide-react";
+import logo from "@/assets/logo-neuraflow.png";
 
 const About = () => {
   const values = [
@@ -136,15 +137,19 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder */}
+      {/* Founder - HL logo replaced with NeuraFlow logo */}
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <Card className="p-8 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <div className="md:col-span-1">
-                  <div className="w-48 h-48 mx-auto rounded-2xl bg-gradient-neural flex items-center justify-center shadow-neural">
-                    <span className="text-6xl font-bold text-white">HL</span>
+                  <div className="w-48 h-48 mx-auto rounded-2xl bg-gradient-neural flex items-center justify-center shadow-neural overflow-hidden p-4">
+                    <img 
+                      src={logo} 
+                      alt="NeuraFlow logo" 
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                 </div>
                 <div className="md:col-span-2">

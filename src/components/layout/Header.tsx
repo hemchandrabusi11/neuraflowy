@@ -19,10 +19,14 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-b border-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-20 md:h-24">
+          {/* Logo - 2x scaled with responsive sizing */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-            <img src={logo} alt="NeuraFlow" className="h-8 w-auto" />
+            <img 
+              src={logo} 
+              alt="NeuraFlow logo" 
+              className="h-16 md:h-20 lg:h-24 w-auto max-h-[64px] md:max-h-[80px] lg:max-h-[96px]" 
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -38,11 +42,8 @@ const Header = () => {
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Button - Removed "Get Quote", kept only Book Consultation */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline" asChild>
-              <Link to="/contact">Get a Quote</Link>
-            </Button>
             <Button asChild className="bg-gradient-neural shadow-neural">
               <a 
                 href="https://calendar.app.google/bv3YjwZwfayx6TPd6?utm_source=website&utm_medium=cta&utm_campaign=book_consultation&utm_content=header_desktop" 
@@ -79,11 +80,6 @@ const Header = () => {
                 </Link>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button variant="outline" asChild>
-                  <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                    Get a Quote
-                  </Link>
-                </Button>
                 <Button asChild className="bg-gradient-neural">
                   <a 
                     href="https://calendar.app.google/bv3YjwZwfayx6TPd6?utm_source=website&utm_medium=cta&utm_campaign=book_consultation&utm_content=header_mobile" 

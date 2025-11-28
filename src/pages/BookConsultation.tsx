@@ -31,7 +31,7 @@ const BookConsultation = () => {
     "AI Chatbots (Web + WhatsApp)",
     "Website & App Development",
     "Google & Meta Ads",
-    "Attendance Automation",
+    "AI Receptionist",
     "Analytics Dashboards",
     "Business Integrations",
     "Other",

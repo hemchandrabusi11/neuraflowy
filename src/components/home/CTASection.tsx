@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import { ArrowRight, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 const CTASection = () => {
   return (
@@ -28,17 +27,6 @@ const CTASection = () => {
               asChild
               className="bg-white text-primary hover:bg-white/90 shadow-lg group"
             >
-              <Link to="/contact">
-                Get a Free Quote
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="border-white/30 text-white hover:bg-white/10 hover:text-white group"
-            >
               <a 
                 href="https://calendar.app.google/bv3YjwZwfayx6TPd6?utm_source=website&utm_medium=cta&utm_campaign=book_consultation&utm_content=cta_section" 
                 target="_blank" 
@@ -46,7 +34,7 @@ const CTASection = () => {
                 aria-label="Book Consultation — opens in new tab"
               >
                 <Calendar className="mr-2 w-4 h-4" />
-                Book Consultation
+                Book Free Consultation
               </a>
             </Button>
           </div>

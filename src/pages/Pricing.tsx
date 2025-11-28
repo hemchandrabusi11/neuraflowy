@@ -21,7 +21,7 @@ const Pricing = () => {
         { name: "Up to 3 Automation Workflows", included: true },
         { name: "Email Support", included: true },
         { name: "WhatsApp Bot", included: false },
-        { name: "Attendance System", included: false },
+        { name: "AI Receptionist", included: false },
         { name: "Analytics Dashboard", included: false },
         { name: "Priority Support", included: false },
       ],
@@ -39,7 +39,7 @@ const Pricing = () => {
         { name: "Up to 10 Automation Workflows", included: true },
         { name: "Basic Analytics Dashboard", included: true },
         { name: "Email & Phone Support", included: true },
-        { name: "Attendance System", included: false },
+        { name: "AI Receptionist", included: false },
         { name: "Custom Integrations", included: false },
         { name: "Dedicated Account Manager", included: false },
       ],
@@ -56,7 +56,7 @@ const Pricing = () => {
         { name: "Enterprise CRM", included: true },
         { name: "Unlimited Automation Workflows", included: true },
         { name: "Advanced Analytics Dashboard", included: true },
-        { name: "Attendance & Field Automation", included: true },
+        { name: "AI Receptionist & Field Automation", included: true },
         { name: "Up to 5 Custom Integrations", included: true },
         { name: "Priority Support (24/7)", included: true },
         { name: "Monthly Strategy Calls", included: true },
@@ -223,7 +223,7 @@ const Pricing = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground">
-              Need a Custom Quote?
+              Need a Custom Solution?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
               Every business has unique needs. Let's discuss a tailored plan that fits your requirements and budget.
@@ -240,7 +240,7 @@ const Pricing = () => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/contact">Request Custom Quote</Link>
+                <Link to="/contact">Contact Us</Link>
               </Button>
             </div>
           </div>
