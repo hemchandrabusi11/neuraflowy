@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Premium Dark Theme - Matte Black Base */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 93%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 93%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 93%;
+
+    /* NeuraFlow Primary Blue */
+    --primary: 215 100% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 215 100% 65%;
+    
+    /* NeuraFlow Gold Accent */
+    --accent-gold: 44 95% 63%;
+    --accent-gold-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 5%;
+    --secondary-foreground: 0 0% 93%;
+
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 8%;
+    --accent-foreground: 0 0% 93%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 11%;
+    --ring: 215 100% 53%;
+
+    --radius: 0.75rem;
+
+    /* Neural Network Gradients - Dark */
+    --gradient-neural: linear-gradient(135deg, hsl(215 100% 53%) 0%, hsl(250 80% 45%) 100%);
+    --gradient-neural-subtle: linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(215 100% 8%) 100%);
+    --gradient-gold-glow: linear-gradient(135deg, hsl(44 95% 63%) 0%, hsl(35 95% 58%) 100%);
+    
+    /* Premium Dark Shadows */
+    --shadow-neural: 0 10px 50px -10px hsl(215 100% 53% / 0.4), 0 0 30px -5px hsl(215 100% 53% / 0.2);
+    --shadow-gold: 0 10px 30px -10px hsl(44 95% 63% / 0.5);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(215 100% 53% / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 215 100% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 215 100% 53%;
+  }
+
+  .dark {
+    /* Dark mode uses same values as light for consistent premium dark theme */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 93%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 93%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 93%;
+
+    --primary: 215 100% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 215 100% 65%;
+
+    --accent-gold: 44 95% 63%;
+    --accent-gold-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 5%;
+    --secondary-foreground: 0 0% 93%;
+
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 8%;
+    --accent-foreground: 0 0% 93%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 11%;
+    --ring: 215 100% 53%;
+
+    --gradient-neural: linear-gradient(135deg, hsl(215 100% 53%) 0%, hsl(250 80% 45%) 100%);
+    --gradient-neural-subtle: linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(215 100% 8%) 100%);
+    
+    --shadow-neural: 0 10px 50px -10px hsl(215 100% 53% / 0.4), 0 0 30px -5px hsl(215 100% 53% / 0.2);
+    --shadow-gold: 0 10px 30px -10px hsl(44 95% 63% / 0.5);
+    --shadow-glow: 0 0 40px hsl(215 100% 53% / 0.3);
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 215 100% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 215 100% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
