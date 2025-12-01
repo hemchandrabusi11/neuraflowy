@@ -50,10 +50,10 @@ const Services = () => {
     },
     {
       icon: Network,
-      title: "Business Integrations",
-      description: "Seamless API integrations connecting your business tools and systems. Automate data flow between platforms for unified operations.",
-      features: ["API Development", "System Integration", "Data Synchronization", "Workflow Automation"],
-      slug: "business-integrations",
+      title: "Personalized Email Follow-Up System",
+      description: "The AI Receptionist automates front-desk interactions, ensuring every customer call, text, or chat is handled instantly, professionally, and 24/7.",
+      features: ["24/7 Automated Responses", "Instant Call Handling", "Multi-Channel Support", "Professional Interactions"],
+      slug: "email-follow-up",
     },
   ];
 
