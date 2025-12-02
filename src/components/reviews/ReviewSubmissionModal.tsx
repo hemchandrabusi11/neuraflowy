@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { z } from "zod";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,6 +26,25 @@ const services = [
   "Custom Workflows"
 ];
 
+// Zod schema for review validation
+const reviewSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  location: z.string().trim().max(100, "Location must be less than 100 characters").optional().nullable().transform(val => val || null),
+  email: z.union([
+    z.string().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+    z.literal(""),
+    z.null()
+  ]).optional().nullable().transform(val => val || null),
+  product: z.string().min(1, "Please select a service"),
+  rating: z.number().int().min(1, "Please select a rating").max(5, "Rating must be between 1 and 5"),
+  comment: z.string().trim().min(1, "Review text is required").max(1000, "Review must be less than 1000 characters"),
+  image_url: z.union([
+    z.string().url("Invalid URL format"),
+    z.literal(""),
+    z.null()
+  ]).optional().nullable().transform(val => val || null),
+});
+
 export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewSubmissionModalProps) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -38,19 +58,13 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
   });
   const [hoveredRating, setHoveredRating] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.name || !formData.product || !formData.rating || !formData.comment) {
-      toast({
-        title: "Missing fields",
-        description: "Please fill in all required fields",
-        variant: "destructive"
-      });
-      return;
-    }
+    setValidationErrors({});
 
+    // Validate authorization first
     if (!formData.authorized) {
       toast({
         title: "Authorization required",
@@ -60,20 +74,52 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
       return;
     }
 
+    // Validate form data with zod
+    const validationResult = reviewSchema.safeParse({
+      name: formData.name,
+      location: formData.location || null,
+      email: formData.email || null,
+      product: formData.product,
+      rating: formData.rating,
+      comment: formData.comment,
+      image_url: formData.image_url || null,
+    });
+
+    if (!validationResult.success) {
+      const errors: Record<string, string> = {};
+      validationResult.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          errors[err.path[0] as string] = err.message;
+        }
+      });
+      setValidationErrors(errors);
+      
+      // Show first error as toast
+      const firstError = validationResult.error.errors[0];
+      toast({
+        title: "Validation Error",
+        description: firstError.message,
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      const validatedData = validationResult.data;
+
       // Insert review into database
       const { error: dbError } = await supabase
         .from("reviews")
         .insert({
-          name: formData.name.trim(),
-          location: formData.location.trim() || null,
-          email: formData.email.trim() || null,
-          product: formData.product,
-          rating: formData.rating,
-          comment: formData.comment.trim(),
-          image_url: formData.image_url.trim() || null,
+          name: validatedData.name,
+          location: validatedData.location,
+          email: validatedData.email,
+          product: validatedData.product,
+          rating: validatedData.rating,
+          comment: validatedData.comment,
+          image_url: validatedData.image_url,
           approved: false
         });
 
@@ -83,11 +129,11 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
       try {
         await supabase.functions.invoke("review-webhook", {
           body: {
-            name: formData.name,
-            email: formData.email,
-            rating: formData.rating,
-            comment: formData.comment,
-            product: formData.product,
+            name: validatedData.name,
+            email: validatedData.email || "",
+            rating: validatedData.rating,
+            comment: validatedData.comment,
+            product: validatedData.product,
             date: new Date().toISOString()
           }
         });
@@ -112,6 +158,7 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
         image_url: "",
         authorized: false
       });
+      setValidationErrors({});
       
       onSuccess();
       onOpenChange(false);
@@ -143,9 +190,12 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="Your name"
-              required
               maxLength={100}
+              className={validationErrors.name ? "border-destructive" : ""}
             />
+            {validationErrors.name && (
+              <p className="text-sm text-destructive mt-1">{validationErrors.name}</p>
+            )}
           </div>
 
           {/* Location */}
@@ -157,7 +207,11 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
               onChange={(e) => setFormData({ ...formData, location: e.target.value })}
               placeholder="City, Country"
               maxLength={100}
+              className={validationErrors.location ? "border-destructive" : ""}
             />
+            {validationErrors.location && (
+              <p className="text-sm text-destructive mt-1">{validationErrors.location}</p>
+            )}
           </div>
 
           {/* Email */}
@@ -170,14 +224,18 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="your@email.com"
               maxLength={255}
+              className={validationErrors.email ? "border-destructive" : ""}
             />
+            {validationErrors.email && (
+              <p className="text-sm text-destructive mt-1">{validationErrors.email}</p>
+            )}
           </div>
 
           {/* Product/Service */}
           <div>
             <Label htmlFor="product">Product / Service *</Label>
             <Select value={formData.product} onValueChange={(value) => setFormData({ ...formData, product: value })}>
-              <SelectTrigger>
+              <SelectTrigger className={validationErrors.product ? "border-destructive" : ""}>
                 <SelectValue placeholder="Select a service" />
               </SelectTrigger>
               <SelectContent>
@@ -188,6 +246,9 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
                 ))}
               </SelectContent>
             </Select>
+            {validationErrors.product && (
+              <p className="text-sm text-destructive mt-1">{validationErrors.product}</p>
+            )}
           </div>
 
           {/* Rating */}
@@ -213,6 +274,9 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
                 </button>
               ))}
             </div>
+            {validationErrors.rating && (
+              <p className="text-sm text-destructive mt-1">{validationErrors.rating}</p>
+            )}
           </div>
 
           {/* Review Text */}
@@ -224,13 +288,15 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
               onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
               placeholder="Share your experience..."
               rows={5}
-              required
               maxLength={1000}
-              className="resize-none"
+              className={`resize-none ${validationErrors.comment ? "border-destructive" : ""}`}
             />
             <p className="text-sm text-muted-foreground mt-1">
               {formData.comment.length}/1000 characters
             </p>
+            {validationErrors.comment && (
+              <p className="text-sm text-destructive mt-1">{validationErrors.comment}</p>
+            )}
           </div>
 
           {/* Image URL (optional) */}
@@ -242,7 +308,11 @@ export const ReviewSubmissionModal = ({ open, onOpenChange, onSuccess }: ReviewS
               value={formData.image_url}
               onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
               placeholder="https://example.com/image.jpg"
+              className={validationErrors.image_url ? "border-destructive" : ""}
             />
+            {validationErrors.image_url && (
+              <p className="text-sm text-destructive mt-1">{validationErrors.image_url}</p>
+            )}
           </div>
 
           {/* Authorization Checkbox */}
