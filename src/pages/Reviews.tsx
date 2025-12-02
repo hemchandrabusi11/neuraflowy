@@ -43,29 +43,33 @@ const Reviews = () => {
   const fetchReviews = async () => {
     setLoading(true);
     try {
+      // Use reviews_public view to protect email addresses from exposure
+      // Build query with filters and sorting
+      let orderColumn = "created_at";
+      let ascending = false;
+      
+      if (sortBy === "highest") {
+        orderColumn = "rating";
+        ascending = false;
+      } else if (sortBy === "lowest") {
+        orderColumn = "rating";
+        ascending = true;
+      }
+
       let query = supabase
-        .from("reviews")
+        .from("reviews_public" as any)
         .select("*")
-        .eq("approved", true);
+        .order(orderColumn, { ascending });
 
       // Apply product filter
       if (filterProduct !== "all") {
         query = query.eq("product", filterProduct);
       }
 
-      // Apply sorting
-      if (sortBy === "recent") {
-        query = query.order("created_at", { ascending: false });
-      } else if (sortBy === "highest") {
-        query = query.order("rating", { ascending: false }).order("created_at", { ascending: false });
-      } else if (sortBy === "lowest") {
-        query = query.order("rating", { ascending: true }).order("created_at", { ascending: false });
-      }
-
       const { data, error } = await query;
 
       if (error) throw error;
-      setReviews(data || []);
+      setReviews((data as unknown as Review[]) || []);
     } catch (error) {
       console.error("Error fetching reviews:", error);
     } finally {
