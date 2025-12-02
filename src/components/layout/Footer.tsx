@@ -27,7 +27,7 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="NeuraFlow logo" 
-                className="h-16 md:h-20 lg:h-24 w-auto max-h-[64px] md:max-h-[80px] lg:max-h-[96px]" 
+                className="h-20 md:h-24 lg:h-32 w-auto max-h-[80px] md:max-h-[96px] lg:max-h-[128px]" 
               />
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
