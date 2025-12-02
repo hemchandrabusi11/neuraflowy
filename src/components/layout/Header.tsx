@@ -46,7 +46,7 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <Button asChild className="bg-gradient-neural shadow-neural">
               <a 
-                href="https://calendar.app.google/bv3YjwZwfayx6TPd6?utm_source=website&utm_medium=cta&utm_campaign=book_consultation&utm_content=header_desktop" 
+                href="https://calendar.app.google/wRuhoJAFqSXioHXT7" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Book Consultation — opens in new tab"
@@ -82,7 +82,7 @@ const Header = () => {
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <Button asChild className="bg-gradient-neural">
                   <a 
-                    href="https://calendar.app.google/bv3YjwZwfayx6TPd6?utm_source=website&utm_medium=cta&utm_campaign=book_consultation&utm_content=header_mobile" 
+                    href="https://calendar.app.google/wRuhoJAFqSXioHXT7" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     onClick={() => setMobileMenuOpen(false)}

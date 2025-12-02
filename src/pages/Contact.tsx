@@ -117,7 +117,7 @@ const Contact = () => {
                   className="bg-white text-primary hover:bg-white/90"
                 >
                   <a 
-                    href="https://calendar.app.google/bv3YjwZwfayx6TPd6?utm_source=website&utm_medium=cta&utm_campaign=book_consultation&utm_content=contact_page" 
+                    href="https://calendar.app.google/wRuhoJAFqSXioHXT7" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     aria-label="Book Consultation — opens in new tab"

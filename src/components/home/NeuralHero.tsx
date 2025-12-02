@@ -131,7 +131,7 @@ const NeuralHero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button size="lg" asChild className="bg-gradient-neural shadow-glow hover:shadow-neural transition-all group">
               <a 
-                href="https://calendar.app.google/bv3YjwZwfayx6TPd6?utm_source=website&utm_medium=cta&utm_campaign=book_consultation&utm_content=hero" 
+                href="https://calendar.app.google/wRuhoJAFqSXioHXT7" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Book Free Consultation — opens in new tab"
