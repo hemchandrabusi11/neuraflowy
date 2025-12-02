@@ -30,9 +30,9 @@ const ServicesGrid = () => {
     },
     {
       icon: Target,
-      title: "Google & Meta Ads",
-      description: "Data-driven advertising campaigns that maximize ROI and conversions.",
-      href: "/services/ads-management",
+      title: "Personalized Email Follow-Up System",
+      description: "Ditch generic outreach: Our S-Tier System deploys human-like, hyper-personalized email follow-ups that turn cold leads into warm appointments automatically.",
+      href: "/services/email-follow-up",
     },
     {
       icon: Clock,
