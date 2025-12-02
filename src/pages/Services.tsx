@@ -51,7 +51,7 @@ const Services = () => {
     {
       icon: Network,
       title: "Personalized Email Follow-Up System",
-      description: "The AI Receptionist automates front-desk interactions, ensuring every customer call, text, or chat is handled instantly, professionally, and 24/7.",
+      description: "Ditch generic outreach: Our S-Tier System deploys human-like, hyper-personalized email follow-ups that turn cold leads into warm appointments automatically.",
       features: ["24/7 Automated Responses", "Instant Call Handling", "Multi-Channel Support", "Professional Interactions"],
       slug: "email-follow-up",
     },
