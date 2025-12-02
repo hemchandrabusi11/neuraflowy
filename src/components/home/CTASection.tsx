@@ -28,7 +28,7 @@ const CTASection = () => {
               className="bg-white text-primary hover:bg-white/90 shadow-lg group"
             >
               <a 
-                href="https://calendar.app.google/bv3YjwZwfayx6TPd6?utm_source=website&utm_medium=cta&utm_campaign=book_consultation&utm_content=cta_section" 
+                href="https://calendar.app.google/wRuhoJAFqSXioHXT7" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Book Consultation — opens in new tab"
