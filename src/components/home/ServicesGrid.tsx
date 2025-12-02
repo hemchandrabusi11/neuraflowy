@@ -37,7 +37,7 @@ const ServicesGrid = () => {
     {
       icon: Clock,
       title: "AI Receptionist",
-      description: "Automated attendance, selfie-based punch & smart logging for field workforce.",
+      description: "The AI Receptionist automates front-desk interactions, ensuring every customer call, text, or chat is handled instantly, professionally, and 24/7.",
       href: "/services/ai-receptionist",
     },
     {
