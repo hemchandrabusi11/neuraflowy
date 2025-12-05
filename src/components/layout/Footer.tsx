@@ -26,8 +26,8 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-2 mb-4">
               <img 
                 src={logo} 
-                alt="NeuraFlow logo" 
-                className="h-20 md:h-24 lg:h-32 w-auto max-h-[80px] md:max-h-[96px] lg:max-h-[128px]" 
+                alt="NeuraFlowy logo" 
+                className="h-28 md:h-32 lg:h-44 w-auto max-h-[112px] md:max-h-[128px] lg:max-h-[176px]" 
               />
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
