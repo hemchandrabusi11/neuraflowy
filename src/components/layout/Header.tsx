@@ -25,7 +25,7 @@ const Header = () => {
             <img 
               src={logo} 
               alt="NeuraFlowy logo" 
-              className="h-28 md:h-32 lg:h-44 w-auto max-h-[112px] md:max-h-[128px] lg:max-h-[176px]"
+              className="h-24 md:h-28 lg:h-40 w-auto max-h-[96px] md:max-h-[112px] lg:max-h-[160px]"
             />
           </Link>
 
