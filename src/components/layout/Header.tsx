@@ -19,13 +19,13 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-b border-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
-          {/* Logo - 2x scaled with responsive sizing */}
+        <div className="flex items-center justify-between h-24 md:h-28">
+          {/* Logo - larger responsive sizing */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
             <img 
               src={logo} 
-              alt="NeuraFlow logo" 
-              className="h-20 md:h-24 lg:h-32 w-auto max-h-[80px] md:max-h-[96px] lg:max-h-[128px]" 
+              alt="NeuraFlowy logo" 
+              className="h-24 md:h-28 lg:h-40 w-auto max-h-[96px] md:max-h-[112px] lg:max-h-[160px]" 
             />
           </Link>
 
