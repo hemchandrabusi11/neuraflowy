@@ -50,18 +50,18 @@ const CaseStudies = () => {
       tags: ["AI Chatbot", "Customer Support", "WhatsApp"],
     },
     {
-      slug: "field-workforce-automation",
-      title: "Field Workforce Automation",
+      slug: "workforce-automation",
+      title: "Workforce Automation",
       industry: "Logistics",
       image: "bg-gradient-to-br from-violet-500 to-purple-600",
-      problem: "No visibility into field team activities and location",
-      solution: "AI Receptionist with GPS-based tracking and real-time reporting",
+      problem: "Businesses are losing sales and wasting staff time because they can't answer customer calls and inquiries instantly, 24/7.",
+      solution: "The AI Receptionist automates front-desk interactions, ensuring every customer call, text, or chat is handled instantly, professionally, and 24/7.",
       results: [
         { label: "Tracking Accuracy", value: "100%" },
         { label: "Admin Time", value: "-80%" },
         { label: "Productivity", value: "+25%" },
       ],
-      tags: ["AI Receptionist", "GPS Tracking", "Automation"],
+      tags: ["AI Receptionist", "Automation"],
     },
   ];
 
@@ -199,7 +199,7 @@ const CaseStudies = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="bg-gradient-neural shadow-neural">
                 <a 
-                  href="https://calendar.app.google/bv3YjwZwfayx6TPd6?utm_source=website&utm_medium=cta&utm_campaign=book_consultation&utm_content=case_studies_cta" 
+                  href="https://calendar.app.google/wRuhoJAFqSXioHXT7" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="Book Free Consultation — opens in new tab"

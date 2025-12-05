@@ -38,7 +38,7 @@ const Services = () => {
       icon: Clock,
       title: "AI Receptionist",
       description: "The AI Receptionist automates front-desk interactions, ensuring every customer call, text, or chat is handled instantly, professionally, and 24/7.",
-      features: ["GPS Tracking", "Real-time Updates", "Automated Reports", "Mobile Access"],
+      features: ["24/7 Availability", "Real-time Updates", "Automated Reports", "Mobile Access"],
       slug: "ai-receptionist",
     },
     {
