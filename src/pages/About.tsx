@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Brain, Zap, Target, Rocket, Shield, Users } from "lucide-react";
-import logo from "@/assets/logo-neuraflow.png";
+import logo from "@/assets/logo-neuraflowy-blue.png";
 
 const About = () => {
   const values = [
