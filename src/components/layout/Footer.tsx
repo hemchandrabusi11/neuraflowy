@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
-import logo from "@/assets/logo-neuraflow.png";
+import logo from "@/assets/logo-neuraflowy.png";
 
 const Footer = () => {
   const services = [
