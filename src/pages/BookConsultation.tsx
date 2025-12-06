@@ -93,7 +93,7 @@ const BookConsultation = () => {
                 Consultation Booked!
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
-                Thank you for booking a consultation with NeuraFlow. We've sent a confirmation email with the meeting details.
+                Thank you for booking a consultation with NeuraFlowy. We've sent a confirmation email with the meeting details.
               </p>
               <div className="bg-secondary rounded-lg p-6 mb-8 text-left">
                 <h3 className="font-semibold mb-4 text-foreground">Booking Details:</h3>

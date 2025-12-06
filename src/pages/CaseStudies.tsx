@@ -75,7 +75,7 @@ const CaseStudies = () => {
               Success Stories
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground">
-              Real results from businesses that automated with NeuraFlow.
+              Real results from businesses that automated with NeuraFlowy.
             </p>
           </div>
         </div>
@@ -194,7 +194,7 @@ const CaseStudies = () => {
               Ready to Write Your Success Story?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Let's discuss how NeuraFlow can transform your business operations.
+              Let's discuss how NeuraFlowy can transform your business operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="bg-gradient-neural shadow-neural">

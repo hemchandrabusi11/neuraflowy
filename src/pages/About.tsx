@@ -46,7 +46,7 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-              About NeuraFlow
+              About NeuraFlowy
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground">
               Accelerating business growth through intelligent automation.
@@ -62,7 +62,7 @@ const About = () => {
             <div className="prose prose-lg max-w-none">
               <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
               <p className="text-muted-foreground mb-4">
-                NeuraFlow was founded with a singular mission: to empower businesses with intelligent, 
+                NeuraFlowy was founded with a singular mission: to empower businesses with intelligent, 
                 automated systems that eliminate manual work and accelerate growth. We recognized that 
                 while AI and automation technologies were rapidly advancing, most businesses struggled 
                 to harness their power effectively.
@@ -137,7 +137,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder - HL logo replaced with NeuraFlow logo */}
+      {/* Founder - HL logo replaced with NeuraFlowy logo */}
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -160,12 +160,12 @@ const About = () => {
                     Founder & CEO
                   </p>
                   <p className="text-muted-foreground mb-4">
-                    With a passion for AI and automation, Hemachandra founded NeuraFlow to help 
+                    With a passion for AI and automation, Hemachandra founded NeuraFlowy to help 
                     businesses harness the power of intelligent systems. His vision is to make 
                     advanced automation accessible to every business, regardless of size or industry.
                   </p>
                   <p className="text-muted-foreground">
-                    Under his leadership, NeuraFlow has helped dozens of companies transform their 
+                    Under his leadership, NeuraFlowy has helped dozens of companies transform their 
                     operations through custom AI solutions, delivering measurable results and 
                     sustainable growth.
                   </p>
@@ -184,7 +184,7 @@ const About = () => {
               Ready to Transform Your Business?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Let's discuss how NeuraFlow can help you achieve your automation goals.
+              Let's discuss how NeuraFlowy can help you achieve your automation goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="bg-gradient-neural shadow-neural">

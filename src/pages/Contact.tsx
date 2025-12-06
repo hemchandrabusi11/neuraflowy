@@ -46,7 +46,7 @@ const Contact = () => {
                     <Button asChild size="lg" className="bg-gradient-neural shadow-neural">
                       <a
                         href="tel:7892748115"
-                        aria-label="Call NeuraFlow"
+                        aria-label="Call NeuraFlowy"
                       >
                         <Phone className="mr-2 w-4 h-4" />
                         7892748115
@@ -68,7 +68,7 @@ const Contact = () => {
                     <Button asChild size="lg" variant="outline">
                       <a
                         href="mailto:hemchandrabusi11@gmail.com"
-                        aria-label="Email NeuraFlow"
+                        aria-label="Email NeuraFlowy"
                       >
                         <Mail className="mr-2 w-4 h-4" />
                         hemchandrabusi11@gmail.com
