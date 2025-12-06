@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
-import logo from "@/assets/logo-neuraflowy.png";
+import logo from "@/assets/logo-neuraflowy-new.png";
 
 const Footer = () => {
   const services = [
@@ -13,7 +13,6 @@ const Footer = () => {
   const company = [
     { name: "About", href: "/about" },
     { name: "Case Studies", href: "/case-studies" },
-    { name: "Reviews", href: "/reviews" },
     { name: "Contact", href: "/contact" },
   ];
 

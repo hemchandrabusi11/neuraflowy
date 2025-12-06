@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo-neuraflowy.png";
+import logo from "@/assets/logo-neuraflowy-new.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,7 +12,6 @@ const Header = () => {
     { name: "Pricing", href: "/pricing" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "About", href: "/about" },
-    { name: "Reviews", href: "/reviews" },
     { name: "Contact", href: "/contact" },
   ];
 
