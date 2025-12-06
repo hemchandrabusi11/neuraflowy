@@ -144,10 +144,10 @@ const About = () => {
             <Card className="p-8 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <div className="md:col-span-1">
-                  <div className="w-48 h-48 mx-auto rounded-2xl bg-gradient-neural flex items-center justify-center shadow-neural overflow-hidden p-4">
+                  <div className="w-48 h-48 mx-auto flex items-center justify-center">
                     <img 
                       src={logo} 
-                      alt="NeuraFlow logo" 
+                      alt="NeuraFlowy logo" 
                       className="w-full h-full object-contain"
                     />
                   </div>
