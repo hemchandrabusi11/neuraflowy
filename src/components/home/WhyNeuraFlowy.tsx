@@ -1,6 +1,6 @@
 import { Brain, Zap, Target, Rocket } from "lucide-react";
 
-const WhyNeuraFlow = () => {
+const WhyNeuraFlowy = () => {
   const pillars = [
     {
       icon: Brain,
@@ -29,7 +29,7 @@ const WhyNeuraFlow = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-            Why Choose NeuraFlow?
+            Why Choose NeuraFlowy?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             We combine cutting-edge AI technology with practical business automation.
@@ -60,4 +60,4 @@ const WhyNeuraFlow = () => {
   );
 };
 
-export default WhyNeuraFlow;
+export default WhyNeuraFlowy;

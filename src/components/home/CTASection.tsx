@@ -16,7 +16,7 @@ const CTASection = () => {
             Ready to Automate Your Business?
           </h2>
           <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Let's discuss how NeuraFlow can transform your operations with intelligent automation.
+            Let's discuss how NeuraFlowy can transform your operations with intelligent automation.
             Book a free consultation today.
           </p>
 

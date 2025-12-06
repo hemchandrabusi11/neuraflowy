@@ -78,7 +78,7 @@ const Footer = () => {
               <li>
                 <a
                   href="tel:7892748115"
-                  aria-label="Call NeuraFlow"
+                  aria-label="Call NeuraFlowy"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
                 >
                   <Phone size={16} />
@@ -88,7 +88,7 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:hemchandrabusi11@gmail.com"
-                  aria-label="Email NeuraFlow"
+                  aria-label="Email NeuraFlowy"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
                 >
                   <Mail size={16} />
@@ -114,7 +114,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} NeuraFlow. All rights reserved.
+              © {new Date().getFullYear()} NeuraFlowy. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">

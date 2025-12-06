@@ -15,7 +15,7 @@ const CACHE_DURATION = 60 * 60 * 1000; // 1 hour
 export const useCurrency = (): UseCurrencyReturn => {
   const [currency, setCurrencyState] = useState<Currency>(() => {
     // Check localStorage first
-    const saved = localStorage.getItem("neuraflow_currency");
+    const saved = localStorage.getItem("neuraflowy_currency");
     if (saved === "INR" || saved === "USD") return saved;
     
     // Default based on location will be set in useEffect
@@ -26,7 +26,7 @@ export const useCurrency = (): UseCurrencyReturn => {
 
   useEffect(() => {
     // Detect country on mount if no saved preference
-    const saved = localStorage.getItem("neuraflow_currency");
+    const saved = localStorage.getItem("neuraflowy_currency");
     if (!saved) {
       detectCountry();
     }
@@ -55,8 +55,8 @@ export const useCurrency = (): UseCurrencyReturn => {
   const fetchExchangeRate = async () => {
     try {
       // Check cache first
-      const cached = localStorage.getItem("neuraflow_exchange_rate");
-      const cacheTime = localStorage.getItem("neuraflow_exchange_rate_time");
+      const cached = localStorage.getItem("neuraflowy_exchange_rate");
+      const cacheTime = localStorage.getItem("neuraflowy_exchange_rate_time");
       
       if (cached && cacheTime) {
         const age = Date.now() - parseInt(cacheTime);
@@ -75,8 +75,8 @@ export const useCurrency = (): UseCurrencyReturn => {
         setExchangeRate(rate);
         
         // Cache the rate
-        localStorage.setItem("neuraflow_exchange_rate", rate.toString());
-        localStorage.setItem("neuraflow_exchange_rate_time", Date.now().toString());
+        localStorage.setItem("neuraflowy_exchange_rate", rate.toString());
+        localStorage.setItem("neuraflowy_exchange_rate_time", Date.now().toString());
       }
     } catch (error) {
       console.error("Failed to fetch exchange rate:", error);
@@ -87,7 +87,7 @@ export const useCurrency = (): UseCurrencyReturn => {
 
   const setCurrency = (newCurrency: Currency) => {
     setCurrencyState(newCurrency);
-    localStorage.setItem("neuraflow_currency", newCurrency);
+    localStorage.setItem("neuraflowy_currency", newCurrency);
   };
 
   const formatPrice = (priceInINR: number): string => {
