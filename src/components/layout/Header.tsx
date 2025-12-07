@@ -1,25 +1,37 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo-neuraflowy-new.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navigation = [
-    { name: "Services", href: "/services" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "Case Studies", href: "/case-studies" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Services", href: "/#services" },
+    { name: "About", href: "/#about" },
+    { name: "Contact", href: "/#contact" },
   ];
+
+  const handleNavClick = (href: string) => {
+    setMobileMenuOpen(false);
+    
+    // If we're already on the home page, scroll to section
+    if (location.pathname === "/" && href.startsWith("/#")) {
+      const sectionId = href.replace("/#", "");
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-b border-border">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24 md:h-28">
-          {/* Logo - larger responsive sizing */}
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
             <img 
               src={logo} 
@@ -31,17 +43,18 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
+                href={item.href}
+                onClick={() => handleNavClick(item.href)}
                 className="text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </div>
 
-          {/* CTA Button - Removed "Get Quote", kept only Book Consultation */}
+          {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
             <Button asChild className="bg-gradient-neural shadow-neural">
               <a 
@@ -69,14 +82,14 @@ const Header = () => {
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col gap-4">
               {navigation.map((item) => (
-                <Link
+                <a
                   key={item.name}
-                  to={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  href={item.href}
+                  onClick={() => handleNavClick(item.href)}
                   className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <Button asChild className="bg-gradient-neural">
