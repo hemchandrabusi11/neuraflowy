@@ -4,23 +4,22 @@ import logo from "@/assets/logo-neuraflowy-new.png";
 
 const Footer = () => {
   const services = [
-    { name: "AI Automation", href: "/services/ai-automation" },
-    { name: "CRM Systems", href: "/services/crm-systems" },
-    { name: "AI Chatbots", href: "/services/ai-chatbots" },
-    { name: "Web Development", href: "/services/web-development" },
+    { name: "AI Automation", href: "/#services" },
+    { name: "CRM Systems", href: "/#services" },
+    { name: "AI Chatbots", href: "/#services" },
+    { name: "Web Development", href: "/#services" },
   ];
 
   const company = [
-    { name: "About", href: "/about" },
-    { name: "Case Studies", href: "/case-studies" },
-    { name: "Contact", href: "/contact" },
+    { name: "About", href: "/#about" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
     <footer className="bg-black border-t border-accent-gold/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand - Logo 2x scaled with responsive sizing */}
+          {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <img 
@@ -43,12 +42,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {services.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    to={item.href}
+                  <a
+                    href={item.href}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -60,12 +59,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {company.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    to={item.href}
+                  <a
+                    href={item.href}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
