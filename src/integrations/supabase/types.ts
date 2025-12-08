@@ -14,83 +14,10 @@ export type Database = {
   }
   public: {
     Tables: {
-      reviews: {
-        Row: {
-          approved: boolean
-          comment: string
-          created_at: string
-          email: string | null
-          id: string
-          image_url: string | null
-          location: string | null
-          name: string
-          product: string
-          rating: number
-        }
-        Insert: {
-          approved?: boolean
-          comment: string
-          created_at?: string
-          email?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          name: string
-          product: string
-          rating: number
-        }
-        Update: {
-          approved?: boolean
-          comment?: string
-          created_at?: string
-          email?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          name?: string
-          product?: string
-          rating?: number
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
-      reviews_public: {
-        Row: {
-          approved: boolean | null
-          comment: string | null
-          created_at: string | null
-          id: string | null
-          image_url: string | null
-          location: string | null
-          name: string | null
-          product: string | null
-          rating: number | null
-        }
-        Insert: {
-          approved?: boolean | null
-          comment?: string | null
-          created_at?: string | null
-          id?: string | null
-          image_url?: string | null
-          location?: string | null
-          name?: string | null
-          product?: string | null
-          rating?: number | null
-        }
-        Update: {
-          approved?: boolean | null
-          comment?: string | null
-          created_at?: string | null
-          id?: string | null
-          image_url?: string | null
-          location?: string | null
-          name?: string | null
-          product?: string | null
-          rating?: number | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       [_ in never]: never
