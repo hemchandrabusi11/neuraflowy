@@ -33,7 +33,16 @@ const Header = () => {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24 md:h-28">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+          <Link 
+            to="/" 
+            className="flex items-center gap-2 hover:opacity-90 transition-opacity cursor-pointer"
+            onClick={(e) => {
+              if (location.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
             <img 
               src={logo} 
               alt="NeuraFlowy logo" 
