@@ -12,6 +12,42 @@ import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+// Validation schema for booking form
+const VALID_SERVICES = [
+  "AI Automation Workflows",
+  "CRM & Lead Systems",
+  "AI Chatbots (Web + WhatsApp)",
+  "Website & App Development",
+  "Google & Meta Ads",
+  "AI Receptionist",
+  "Analytics Dashboards",
+  "Business Integrations",
+  "Other",
+] as const;
+
+const bookingSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters")
+    .regex(/^[a-zA-Z\s\-'.]+$/, "Name contains invalid characters"),
+  email: z.string()
+    .trim()
+    .email("Please enter a valid email address")
+    .max(255, "Email must be less than 255 characters"),
+  phone: z.string()
+    .trim()
+    .regex(/^[+]?[\d\s\-().]{10,20}$/, "Please enter a valid phone number")
+    .or(z.literal("")),
+  service: z.enum(VALID_SERVICES, { errorMap: () => ({ message: "Please select a valid service" }) }),
+  notes: z.string()
+    .trim()
+    .max(1000, "Notes must be less than 1000 characters")
+    .optional()
+    .or(z.literal("")),
+});
 
 const BookConsultation = () => {
   const [date, setDate] = useState<Date>();
@@ -27,17 +63,8 @@ const BookConsultation = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const services = [
-    "AI Automation Workflows",
-    "CRM & Lead Systems",
-    "AI Chatbots (Web + WhatsApp)",
-    "Website & App Development",
-    "Google & Meta Ads",
-    "AI Receptionist",
-    "Analytics Dashboards",
-    "Business Integrations",
-    "Other",
-  ];
+  // Use the VALID_SERVICES constant for consistency
+  const services = [...VALID_SERVICES];
 
   const timeSlots = [
     "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM",
@@ -59,10 +86,22 @@ const BookConsultation = () => {
       return;
     }
 
-    if (!formData.name || !formData.email || !formData.service) {
-      toast.error("Please fill in all required fields");
+    // Validate form data with zod schema
+    const validationResult = bookingSchema.safeParse({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      service: formData.service,
+      notes: formData.notes,
+    });
+
+    if (!validationResult.success) {
+      const firstError = validationResult.error.errors[0];
+      toast.error(firstError.message);
       return;
     }
+
+    const validatedData = validationResult.data;
 
     setIsLoading(true);
 
@@ -70,13 +109,13 @@ const BookConsultation = () => {
       const { error } = await supabase
         .from('consultation_bookings')
         .insert({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          phone: formData.phone.trim() || null,
-          service: formData.service,
+          name: validatedData.name,
+          email: validatedData.email,
+          phone: validatedData.phone || null,
+          service: validatedData.service,
           preferred_date: format(date, "yyyy-MM-dd"),
           preferred_time: formData.time,
-          notes: formData.notes.trim() || null,
+          notes: validatedData.notes || null,
         });
 
       if (error) {
