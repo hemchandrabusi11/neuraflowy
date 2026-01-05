@@ -35,18 +35,21 @@ export const useCurrency = (): UseCurrencyReturn => {
     fetchExchangeRate();
   }, []);
 
-  const detectCountry = async () => {
+  const detectCountry = () => {
     try {
-      const response = await fetch("https://ipapi.co/json/");
-      const data = await response.json();
+      // Use browser's timezone to infer location (privacy-friendly approach)
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       
-      if (data.country_code === "IN") {
+      // Check if timezone indicates India
+      if (timezone.startsWith("Asia/Kolkata") || timezone.startsWith("Asia/Calcutta")) {
         setCurrencyState("INR");
       } else {
         setCurrencyState("USD");
       }
     } catch (error) {
-      console.error("Failed to detect country:", error);
+      if (import.meta.env.DEV) {
+        console.error("Failed to detect country:", error);
+      }
       // Default to INR if detection fails
       setCurrencyState("INR");
     }
@@ -79,7 +82,9 @@ export const useCurrency = (): UseCurrencyReturn => {
         localStorage.setItem("neuraflowy_exchange_rate_time", Date.now().toString());
       }
     } catch (error) {
-      console.error("Failed to fetch exchange rate:", error);
+      if (import.meta.env.DEV) {
+        console.error("Failed to fetch exchange rate:", error);
+      }
       // Use fallback rate
       setExchangeRate(FALLBACK_EXCHANGE_RATE);
     }

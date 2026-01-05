@@ -80,7 +80,9 @@ const BookConsultation = () => {
         });
 
       if (error) {
-        console.error("Booking error:", error);
+        if (import.meta.env.DEV) {
+          console.error("Booking error:", error);
+        }
         toast.error("Failed to book consultation. Please try again.");
         return;
       }
@@ -88,7 +90,9 @@ const BookConsultation = () => {
       toast.success("Consultation booked successfully!");
       setIsSubmitted(true);
     } catch (error) {
-      console.error("Booking error:", error);
+      if (import.meta.env.DEV) {
+        console.error("Booking error:", error);
+      }
       toast.error("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false);
