@@ -6,11 +6,12 @@ import { Card } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CalendarIcon, Check } from "lucide-react";
+import { CalendarIcon, Check, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const BookConsultation = () => {
   const [date, setDate] = useState<Date>();
@@ -24,6 +25,7 @@ const BookConsultation = () => {
     notes: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const services = [
     "AI Automation Workflows",
@@ -57,18 +59,40 @@ const BookConsultation = () => {
       return;
     }
 
-    // Here you would integrate with your webhook
-    const bookingData = {
-      ...formData,
-      date: format(date, "yyyy-MM-dd"),
-      timestamp: new Date().toISOString(),
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    };
+    if (!formData.name || !formData.email || !formData.service) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
 
-    console.log("Booking submitted:", bookingData);
+    setIsLoading(true);
 
-    toast.success("Consultation booked successfully!");
-    setIsSubmitted(true);
+    try {
+      const { error } = await supabase
+        .from('consultation_bookings')
+        .insert({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || null,
+          service: formData.service,
+          preferred_date: format(date, "yyyy-MM-dd"),
+          preferred_time: formData.time,
+          notes: formData.notes.trim() || null,
+        });
+
+      if (error) {
+        console.error("Booking error:", error);
+        toast.error("Failed to book consultation. Please try again.");
+        return;
+      }
+
+      toast.success("Consultation booked successfully!");
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Booking error:", error);
+      toast.error("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (
@@ -315,8 +339,16 @@ const BookConsultation = () => {
                   type="submit"
                   size="lg"
                   className="w-full bg-gradient-neural shadow-neural"
+                  disabled={isLoading}
                 >
-                  Confirm Booking
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Booking...
+                    </>
+                  ) : (
+                    "Confirm Booking"
+                  )}
                 </Button>
               </form>
             </Card>
