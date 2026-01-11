@@ -86,12 +86,12 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:hemchandrabusi11@gmail.com"
+                  href="mailto:hc@neuraflowy.com"
                   aria-label="Email NeuraFlowy"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
                 >
                   <Mail size={16} />
-                  hemchandrabusi11@gmail.com
+                  hc@neuraflowy.com
                 </a>
               </li>
               <li>
