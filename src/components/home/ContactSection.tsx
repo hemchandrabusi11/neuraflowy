@@ -37,7 +37,7 @@ const ContactSection = () => {
               </div>
               <h3 className="font-semibold mb-2 text-foreground">Email</h3>
               <Button asChild variant="outline" size="sm">
-                <a href="mailto:hemchandrabusi11@gmail.com" aria-label="Email NeuraFlowy">
+                <a href="mailto:hc@neuraflowy.com" aria-label="Email NeuraFlowy">
                   Email Us
                 </a>
               </Button>
